@@ -1,0 +1,15 @@
+- hosts: localhost
+  vars:
+    aws_access_key: "{{ lookup('env','AWS_ACCESS_KEY_ID') }}"
+    aws_secret_key: "{{ lookup('env','AWS_SECRET_ACCESS_KEY') }}"    
+    bucket: "{{hostvars.localhost.public_bucket}}"
+  tasks:
+  - name: Upload files
+    s3_sync:
+      aws_access_key: '{{aws_access_key}}'
+      aws_secret_key: '{{aws_secret_key}}'
+      bucket: '{{bucket}}'
+      file_root: "/admin"
+      key_prefix: "/"
+      permission: public-read
+      region: us-east-1
