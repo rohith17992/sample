@@ -1,0 +1,14 @@
+- hosts: localhost
+  vars:
+    aws_access_key: "AKIAJBHX7FYIWKYAJB4Q"
+    aws_secret_key: "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"    
+    bucket: "wildrydes-vinayak-rajamouli-585679"
+  tasks:
+  - name: Upload files
+    s3_sync:
+      aws_access_key: '{{aws_access_key}}'
+      aws_secret_key: '{{aws_secret_key}}'
+      bucket: '{{bucket}}'
+      file_root: "/home/ec2-user/sample/static-web/aws-serverless-workshops-master/WebApplication/1_StaticWebHosting/website"
+      permission: public-read
+      region: eu-west-1
