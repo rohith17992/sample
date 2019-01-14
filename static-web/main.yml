@@ -1,7 +1,7 @@
 - hosts: localhost
   vars:
-    aws_access_key: "AKIAJBHX7FYIWKYAJB4Q"
-    aws_secret_key: "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"    
+    aws_access_key: ""
+    aws_secret_key: ""    
     bucket: "wildrydes-vinayak-rajamouli-585679"
   tasks:
   - name: Upload files
